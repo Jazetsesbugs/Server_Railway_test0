@@ -5,6 +5,7 @@ def server_program():
     # get the hostname
     host = '0.0.0.0'
     port = 5000  # initiate port no above 1024
+    print(socket.gethostbyname(hostname))
 
     server_socket = socket.socket()  # get instance
     # look closely. The bind() function takes tuple as argument
@@ -22,7 +23,7 @@ def server_program():
             # if data is not received break
             break
         print("from connected user: " + str(data))
-        data = input(' -> ')
+        data = 'received'
         conn.send(data.encode())  # send data to the client
 
     conn.close()  # close the connection
